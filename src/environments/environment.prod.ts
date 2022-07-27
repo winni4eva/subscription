@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  melitaApiHost: 'https://selfcare-service.test.melita.com'
 };
