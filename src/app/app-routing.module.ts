@@ -8,6 +8,7 @@ const routes: Routes = [
       .then(m => m.AuthModule),
     canActivate: []
   },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
 ];
 
 @NgModule({
