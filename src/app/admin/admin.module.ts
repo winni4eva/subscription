@@ -12,12 +12,12 @@ import { AngularMaterialModule } from '../material.module';
   declarations: [
     DashboardComponent,
     OffersComponent,
-    SubscriptionsComponent
+    SubscriptionsComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ]
 })
 export class AdminModule { }

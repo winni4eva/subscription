@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AngularMaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -17,10 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthRoutingModule,
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    MatSnackBarModule
   ],
 })
 export class AuthModule { }

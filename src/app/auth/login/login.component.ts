@@ -7,6 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AuthModel } from 'src/app/@store/models/auth.model';
 import { LoadingAuthAction } from '../../@store/actions/auth.actions';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private _authService: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _snackBar: MatSnackBar
     //private store: Store<AppState>,
   ) { }
 
@@ -39,10 +41,12 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
+    this.openSnackBar('Just a tick', 'Loading...');
     const credentials = this.loginForm.value;
     this._authService.login(credentials)
       .subscribe(
         (response: any) => {
+          this.openSnackBar('Login Successful', 'Success');
           localStorage.setItem('AuthToken', response?.authToken);
           this._router.navigate(['admin']);
         },
@@ -56,6 +60,12 @@ export class LoginComponent implements OnInit {
     // this.credentials$ = this.store.select(store => store.auth.credentials);
     // this.loading$ = this.store.select(store => store.auth.loading);
     // this.error$ = this.store.select(store => store.auth.error);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 5000
+    });
   }
 
 }
