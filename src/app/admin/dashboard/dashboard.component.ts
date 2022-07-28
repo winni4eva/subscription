@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppState } from 'src/app/@store/models/app-state.model';
+import { State, Store } from '@ngrx/store';
+import { LoadingOfferAction } from '../../@store/actions/offer.actions';
+import { Observable } from 'rxjs';
+import { OfferModel } from 'src/app/@store/models/offer.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,27 +14,28 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DashboardComponent implements OnInit {
 
-  offers = [];
+  //offers = [];
   subscriptions = [];
+  offers$!: Observable<Array<OfferModel>>;
+  loading$!: Observable<Boolean>;
+  error$!: Observable<Error>;
 
   constructor(
     private _adminService: AdminService,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar,
+    private store: Store<AppState>,
+    private state: State<AppState>) { }
 
   ngOnInit(): void {
-    this.getOffers();
+    this.initialiseOffers();
   }
 
-  getOffers() {
+  initialiseOffers() {
     this.openSnackBar('Fetching Offers', 'loading...');
-    this._adminService.getOffers()
-      .subscribe(
-        (response: any) => {
-          const { offers } = response;
-          this.offers = offers;
-        },
-        error => console.error(error)
-      );
+    this.offers$ = this.store.select(store => store.offer.list);
+    this.loading$ = this.store.select(store => store.offer.loading);
+    this.error$ = this.store.select(store => store.offer.error);
+    this.store.dispatch(new LoadingOfferAction());
   }
 
   getSubscription(event: number) {

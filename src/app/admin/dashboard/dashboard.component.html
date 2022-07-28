@@ -4,7 +4,7 @@
   </mat-toolbar>
 </p>
 
-<div layout="row" class="layout-row">
+<div layout="row" class="layout-row" *ngIf="(offers$ | async) as offers">
   <h2>Offers</h2>
   <app-offers [offers]="offers" (selectedOffer)="getSubscription($event)"></app-offers>
 </div>

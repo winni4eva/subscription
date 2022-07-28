@@ -12,7 +12,7 @@ import { OfferActionTypes } from '../actions/offer.actions';
 import { AdminService } from 'src/app/admin/admin.service';
 
 @Injectable()
-export class AssetsEffects {
+export class OfferEffects {
 
   @Effect() loadAssets$ = this.actions$
     .pipe(
