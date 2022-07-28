@@ -9,7 +9,16 @@ import { AngularMaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { AuthReducer } from './@store/reducers/auth.reducer';
+import { AuthEffects } from './@store/effects/auth.effects';
+import { HttpClientModule } from '@angular/common/http';
 
+// const reducers = {
+//   auth: AuthReducer
+// };
+// const effects = [
+//   AuthEffects
+// ];
 @NgModule({
   declarations: [
     AppComponent
@@ -21,8 +30,9 @@ import { EffectsModule } from '@ngrx/effects';
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([])
+    HttpClientModule,
+    //StoreModule.forRoot(reducers),
+    //EffectsModule.forRoot(effects)
   ],
   providers: [],
   bootstrap: [AppComponent],

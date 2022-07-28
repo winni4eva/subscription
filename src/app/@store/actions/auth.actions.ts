@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Auth } from '../models/auth.model';
+import { AuthModel } from '../models/auth.model';
 
 export enum AuthActionTypes {
   LOADING_AUTH = 'Loading Auth',
@@ -9,13 +9,13 @@ export enum AuthActionTypes {
 export class LoadingAuthAction implements Action {
   readonly type = AuthActionTypes.LOADING_AUTH;
 
-  constructor(public credentials: any) { }
+  constructor(public payload: any) { }
 }
 
 export class LoadingAuthSuccessAction implements Action {
   readonly type = AuthActionTypes.LOADING_AUTH_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: AuthModel) { }
 }
 
 export class LoadingAuthErrorAction implements Action {

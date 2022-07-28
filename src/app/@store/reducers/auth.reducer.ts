@@ -1,8 +1,8 @@
 import { AuthActionTypes, AuthAction } from '../actions/auth.actions';
-import { Auth } from '../models/auth.model';
+import { AuthModel } from '../models/auth.model';
 
 export interface AuthState {
-  credentials: Auth,
+  credentials: AuthModel,
   loading: boolean,
   error: any
 }
@@ -13,7 +13,7 @@ const initialState: AuthState = {
   error: null
 };
 
-export function AssetReducer(state: AuthState = initialState, action: AuthAction) {
+export function AuthReducer(state: AuthState = initialState, action: AuthAction) {
   switch (action.type) {
     case AuthActionTypes.LOADING_AUTH:
       return {
@@ -23,7 +23,7 @@ export function AssetReducer(state: AuthState = initialState, action: AuthAction
     case AuthActionTypes.LOADING_AUTH_SUCCESS:
       return {
         ...state,
-        list: action.payload,
+        credentials: action.payload,
         loading: false
       };
     case AuthActionTypes.LOADING_AUTH_ERROR:
