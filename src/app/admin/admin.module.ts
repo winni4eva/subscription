@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OffersComponent } from './offers/offers.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import { AdminRoutingModule } from './admin-routing.module';
+import { AngularMaterialModule } from '../material.module';
 
 
 
@@ -15,7 +16,8 @@ import { AdminRoutingModule } from './admin-routing.module';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    AngularMaterialModule
   ]
 })
 export class AdminModule { }

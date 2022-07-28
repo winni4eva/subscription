@@ -2,7 +2,7 @@
   <mat-sidenav-content>
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
       <!-- Email -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" appearance="outline">
         <input matInput placeholder="Email" formControlName="email" type="email" />
       </mat-form-field>
       <mat-error
@@ -17,7 +17,7 @@
       </mat-error>
 
       <!-- Password -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" appearance="outline">
         <input matInput placeholder="Password" formControlName="password" type="password" />
       </mat-form-field>
       <mat-error class="mat-caption" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
