@@ -9,6 +9,7 @@ import { AdminService } from '../admin.service';
 export class DashboardComponent implements OnInit {
 
   offers = [];
+  subscriptions = [];
 
   constructor(private _adminService: AdminService) { }
 
@@ -29,6 +30,14 @@ export class DashboardComponent implements OnInit {
 
   getSubscription(event: number) {
     console.log('Get subscription ', event);
+    this._adminService.getOfferSubscription(event)
+      .subscribe(
+        (response: any) => {
+          const { subscriptions } = response;
+          this.subscriptions = subscriptions;
+        },
+        error => console.error(error)
+      );
   }
 
 }

@@ -12,19 +12,5 @@
 
 <div layout="row">
   <h2>Subscriptions</h2>
-  <mat-card class="mat-card">
-    <mat-card-title>Subscription</mat-card-title>
-    <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
-    <mat-card-actions align="end">
-      <button mat-button>View</button>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="mat-card">
-    <mat-card-title>Subscription</mat-card-title>
-    <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
-    <mat-card-actions align="end">
-      <button mat-button>View</button>
-    </mat-card-actions>
-  </mat-card>
+  <app-subscriptions [subscriptions]="subscriptions"></app-subscriptions>
 </div>

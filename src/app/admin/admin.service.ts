@@ -18,4 +18,12 @@ export class AdminService {
       headers: {'Authorization':'Bearer ' + localStorage.getItem('AuthToken')}
     });
   }
+
+  getOfferSubscription(offerId: number) {
+    const endpoint = this.apiHost + `/interview/backend/api/offers/${offerId}/subscriptions`;
+
+    return this._http.get(endpoint, {
+      headers: {'Authorization':'Bearer ' + localStorage.getItem('AuthToken')}
+    });
+  }
 }

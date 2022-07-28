@@ -1,1 +1,7 @@
-<p>subscriptions works!</p>
+<mat-card class="mat-card" *ngFor="let subscription of subscriptions">
+  <mat-card-title>{{subscription?.name}}</mat-card-title>
+  <mat-card-subtitle>{{subscription?.type}}</mat-card-subtitle>
+  <mat-card-actions align="end">
+    <button mat-button>View</button>
+  </mat-card-actions>
+</mat-card>
