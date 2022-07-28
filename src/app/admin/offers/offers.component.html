@@ -1,1 +1,8 @@
-<p>offers works!</p>
+<mat-card class="mat-card" *ngFor="let offer of offers">
+  <mat-card-title>{{offer?.name}}</mat-card-title>
+  <mat-card-subtitle>Start: {{offer?.contractStartDate}}</mat-card-subtitle>
+  <mat-card-subtitle>End: {{offer?.contractEndDate}}</mat-card-subtitle>
+  <mat-card-actions align="end">
+    <button mat-button>View</button>
+  </mat-card-actions>
+</mat-card>

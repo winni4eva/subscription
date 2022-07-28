@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  offers = [];
+
+  constructor(private _adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.getOffers();
+  }
+
+  getOffers() {
+    this._adminService.getOffers()
+      .subscribe(
+        (response: any) => {
+          const { offers } = response;
+          this.offers = offers;
+        },
+        error => console.error(error)
+      );
+  }
+
+  getSubscription(event: number) {
+    console.log('Get subscription ', event);
   }
 
 }

@@ -1,33 +1,19 @@
 <p>
   <mat-toolbar>
-    <span>My Application</span>
+    <span>Melita</span>
   </mat-toolbar>
 </p>
 
 <div layout="row" class="layout-row">
   <h2>Offers</h2>
-  <mat-card class="mat-card">
-    <mat-card-title>Offer</mat-card-title>
-    <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
-    <mat-card-actions align="end">
-      <button mat-button>View</button>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="mat-card">
-    <mat-card-title>Offer</mat-card-title>
-    <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
-    <mat-card-actions align="end">
-      <button mat-button>View</button>
-    </mat-card-actions>
-  </mat-card>
+  <app-offers [offers]="offers"></app-offers>
 </div>
 
 
 <div layout="row">
   <h2>Subscriptions</h2>
   <mat-card class="mat-card">
-    <mat-card-title>Offer</mat-card-title>
+    <mat-card-title>Subscription</mat-card-title>
     <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
     <mat-card-actions align="end">
       <button mat-button>View</button>
@@ -35,7 +21,7 @@
   </mat-card>
 
   <mat-card class="mat-card">
-    <mat-card-title>Offer</mat-card-title>
+    <mat-card-title>Subscription</mat-card-title>
     <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
     <mat-card-actions align="end">
       <button mat-button>View</button>
