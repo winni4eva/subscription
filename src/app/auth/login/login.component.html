@@ -1,32 +1,29 @@
-<mat-sidenav-container class="login-background-gradient" style="height: 100%;">
+<mat-sidenav-container class="login-background-gradient">
   <mat-sidenav-content>
+    <h1 class="form-header">Melita</h1>
+
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
       <!-- Email -->
       <mat-form-field class="example-full-width" appearance="outline">
-        <input matInput placeholder="Email" formControlName="email" type="email" />
+        <input matInput placeholder="Username" formControlName="username" type="text" />
       </mat-form-field>
       <mat-error
-        class="mat-caption"
-        *ngIf="(loginForm.get('email')?.touched || loginForm.get('email')?.dirty) && loginForm.get('email')?.hasError('required')">
-        Email is required
-      </mat-error>
-      <mat-error
-        class="mat-caption"
-        *ngIf="(loginForm.get('email')?.touched || loginForm.get('email')?.dirty) && loginForm.get('email')?.hasError('email')">
-        Email is invalid
+        class="mat-caption error-color"
+        *ngIf="(loginForm.get('username')?.touched || loginForm.get('username')?.dirty) && loginForm.get('username')?.hasError('required')">
+        Username is required
       </mat-error>
 
       <!-- Password -->
       <mat-form-field class="example-full-width" appearance="outline">
         <input matInput placeholder="Password" formControlName="password" type="password" />
       </mat-form-field>
-      <mat-error class="mat-caption" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+      <mat-error class="mat-caption error-color" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
         Password is required
       </mat-error>
 
       <!-- Submit -->
       <div class="button-wrapper">
-        <button mat-flat-button color="primary">Submit</button>
+        <button mat-stroked-button color="white">Submit</button>
       </div>
     </form>
   </mat-sidenav-content>
