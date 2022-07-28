@@ -6,7 +6,7 @@
 
 <div layout="row" class="layout-row">
   <h2>Offers</h2>
-  <app-offers [offers]="offers"></app-offers>
+  <app-offers [offers]="offers" (selectedOffer)="getSubscription($event)"></app-offers>
 </div>
 
 

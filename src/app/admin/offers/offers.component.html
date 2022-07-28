@@ -3,6 +3,6 @@
   <mat-card-subtitle>Start: {{offer?.contractStartDate}}</mat-card-subtitle>
   <mat-card-subtitle>End: {{offer?.contractEndDate}}</mat-card-subtitle>
   <mat-card-actions align="end">
-    <button mat-button>View</button>
+    <button mat-button (click)="emitSelectedOffer(offer?.id)">View</button>
   </mat-card-actions>
 </mat-card>

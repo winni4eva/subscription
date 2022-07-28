@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-offers',
@@ -8,10 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class OffersComponent implements OnInit {
 
   @Input() offers: Array<any> = [];
+  @Output() selectedOffer: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitSelectedOffer(offerId: number) {
+    this.selectedOffer.emit(offerId);
   }
 
 }
