@@ -6,6 +6,7 @@ import { AppState } from '../../@store/models/app-state.model';
 import { Observable, Subscription } from 'rxjs';
 import { AuthModel } from 'src/app/@store/models/auth.model';
 import { LoadingAuthAction } from '../../@store/actions/auth.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private _authService: AuthService,
+    private _router: Router
     //private store: Store<AppState>,
   ) { }
 
@@ -40,7 +42,10 @@ export class LoginComponent implements OnInit {
     const credentials = this.loginForm.value;
     this._authService.login(credentials)
       .subscribe(
-        (response: any) => localStorage.setItem('AuthToken', response?.authToken),
+        (response: any) => {
+          localStorage.setItem('AuthToken', response?.authToken);
+          this._router.navigate(['admin']);
+        },
         error => console.error(error)
       );
     //this.store.dispatch(new LoadingAuthAction(this.loginForm.value));

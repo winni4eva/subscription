@@ -17,4 +17,8 @@ export class AuthService {
 
     return this._http.post(loginEndpoint, credentials);
   }
+
+  isLoggedIn() {
+    return !!localStorage.getItem('AuthToken');
+  }
 }
