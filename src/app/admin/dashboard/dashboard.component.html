@@ -11,6 +11,6 @@
 
 
 <div layout="row">
-  <h2>Subscriptions</h2>
+  <h2 *ngIf="subscriptions?.length">Subscriptions</h2>
   <app-subscriptions [subscriptions]="subscriptions"></app-subscriptions>
 </div>

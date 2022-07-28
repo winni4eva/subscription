@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getSubscription(event: number) {
-    console.log('Get subscription ', event);
     this._adminService.getOfferSubscription(event)
       .subscribe(
         (response: any) => {
